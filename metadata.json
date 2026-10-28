@@ -1,0 +1,6 @@
+{
+  "name": "Sale Analytics",
+  "description": "Complete business management software and long-term financial analytics platform for small shops and retailers. Track sales, products, expenses, and multi-year growth trends.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

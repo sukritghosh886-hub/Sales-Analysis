@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e1b4b" />
+    </linearGradient>
+    <linearGradient id="chartGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0.8" />
+    </linearGradient>
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="50%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)" />
+  <rect width="512" height="512" rx="112" stroke="#312e81" stroke-width="8" fill="none" opacity="0.6"/>
+
+  <!-- Grid lines -->
+  <line x1="80" y1="380" x2="432" y2="380" stroke="#334155" stroke-width="2" stroke-dasharray="6 6" />
+  <line x1="80" y1="290" x2="432" y2="290" stroke="#334155" stroke-width="2" stroke-dasharray="6 6" />
+  <line x1="80" y1="200" x2="432" y2="200" stroke="#334155" stroke-width="2" stroke-dasharray="6 6" />
+
+  <!-- Bar Charts -->
+  <rect x="100" y="270" width="44" height="110" rx="8" fill="#3b82f6" opacity="0.75" />
+  <rect x="170" y="210" width="44" height="170" rx="8" fill="#6366f1" opacity="0.85" />
+  <rect x="240" y="240" width="44" height="140" rx="8" fill="#8b5cf6" opacity="0.75" />
+  <rect x="310" y="160" width="44" height="220" rx="8" fill="#10b981" opacity="0.9" />
+  <rect x="380" y="110" width="44" height="270" rx="8" fill="#059669" />
+
+  <!-- Trend Curve with Glow -->
+  <path d="M 122 250 Q 192 190, 262 210 T 402 90" fill="none" stroke="url(#lineGrad)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Trend Nodes -->
+  <circle cx="122" cy="250" r="10" fill="#38bdf8" stroke="#0f172a" stroke-width="4" />
+  <circle cx="192" cy="190" r="10" fill="#818cf8" stroke="#0f172a" stroke-width="4" />
+  <circle cx="262" cy="210" r="10" fill="#a78bfa" stroke="#0f172a" stroke-width="4" />
+  <circle cx="332" cy="140" r="10" fill="#34d399" stroke="#0f172a" stroke-width="4" />
+  <circle cx="402" cy="90" r="14" fill="#10b981" stroke="#ffffff" stroke-width="4" />
+
+  <!-- Currency / Shop Crest Badge -->
+  <g transform="translate(76, 76)">
+    <circle cx="32" cy="32" r="32" fill="#4f46e5" opacity="0.95" />
+    <path d="M 22 20 L 42 20 M 22 27 L 38 27 M 22 20 C 34 20, 36 34, 25 36 L 40 46 M 30 20 L 30 24" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+  </g>
+</svg>

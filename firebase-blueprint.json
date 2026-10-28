@@ -1,0 +1,119 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile with storekeeper details and role",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "maxLength": 128 },
+        "email": { "type": "string", "maxLength": 256 },
+        "phone": { "type": "string", "maxLength": 32 },
+        "displayName": { "type": "string", "maxLength": 128 },
+        "storeType": { "type": "string", "enum": ["shop", "shopping_mall"] },
+        "createdAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["uid"]
+    },
+    "Business": {
+      "title": "Business",
+      "description": "Registered shop or shopping mall business profile",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "userId": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 128 },
+        "storeType": { "type": "string", "enum": ["shop", "shopping_mall"] },
+        "category": { "type": "string", "maxLength": 64 },
+        "currency": { "type": "string", "maxLength": 8 },
+        "currencySymbol": { "type": "string", "maxLength": 8 },
+        "phone": { "type": "string", "maxLength": 32 },
+        "address": { "type": "string", "maxLength": 256 },
+        "taxId": { "type": "string", "maxLength": 64 },
+        "createdAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "userId", "name"]
+    },
+    "Product": {
+      "title": "Product",
+      "description": "Inventory product item tracked by the store",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "businessId": { "type": "string", "maxLength": 128 },
+        "userId": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 128 },
+        "sku": { "type": "string", "maxLength": 64 },
+        "category": { "type": "string", "maxLength": 64 },
+        "purchaseCost": { "type": "number" },
+        "sellingPrice": { "type": "number" },
+        "stockQuantity": { "type": "number" },
+        "reorderThreshold": { "type": "number" },
+        "unit": { "type": "string", "maxLength": 32 },
+        "outletName": { "type": "string", "maxLength": 128 },
+        "createdAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "businessId", "userId", "name"]
+    },
+    "Sale": {
+      "title": "Sale",
+      "description": "Completed transaction or sales invoice",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "businessId": { "type": "string", "maxLength": 128 },
+        "userId": { "type": "string", "maxLength": 128 },
+        "invoiceNumber": { "type": "string", "maxLength": 64 },
+        "date": { "type": "string", "maxLength": 32 },
+        "customerName": { "type": "string", "maxLength": 128 },
+        "customerPhone": { "type": "string", "maxLength": 32 },
+        "total": { "type": "number" },
+        "totalCost": { "type": "number" },
+        "paymentMethod": { "type": "string", "maxLength": 32 },
+        "paymentStatus": { "type": "string", "maxLength": 32 },
+        "outletName": { "type": "string", "maxLength": 128 },
+        "createdAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "businessId", "userId", "invoiceNumber", "total"]
+    },
+    "Expense": {
+      "title": "Expense",
+      "description": "Operating expenditure or cost record",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "businessId": { "type": "string", "maxLength": 128 },
+        "userId": { "type": "string", "maxLength": 128 },
+        "date": { "type": "string", "maxLength": 32 },
+        "category": { "type": "string", "maxLength": 64 },
+        "description": { "type": "string", "maxLength": 256 },
+        "amount": { "type": "number" },
+        "paymentMethod": { "type": "string", "maxLength": 32 },
+        "outletName": { "type": "string", "maxLength": 128 },
+        "createdAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "businessId", "userId", "amount"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User account documents keyed by Firebase UID"
+    },
+    "/businesses/{businessId}": {
+      "schema": "Business",
+      "description": "Business shop and mall entities keyed by businessId"
+    },
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "Product catalog entries"
+    },
+    "/sales/{saleId}": {
+      "schema": "Sale",
+      "description": "Sales records and invoices"
+    },
+    "/expenses/{expenseId}": {
+      "schema": "Expense",
+      "description": "Expense records"
+    }
+  }
+}
